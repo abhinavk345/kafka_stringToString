@@ -1,0 +1,45 @@
+# Setup and Run Kafka and Consume Kafka
+# This is only String to String consume and produce service
+1.Download the kafka:
+---------------------------
+https://archive.apache.org/dist/kafka/2.0.0/kafka_2.11-2.0.0.tgz
+
+then extract th folder
+
+2.Run Zookeepar first:
+---------------------------
+Goto path of kafka.
+Run >>  C:\Softwares\kafka>.\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+
+3.Run Kafka server:
+---------------------------
+Goto path of kafka.
+Run >>  C:\Softwares\kafka>.\bin\windows\kafka-server-start.bat .\config\server.properties
+
+
+3.Create Topic:
+---------------------------
+Goto path of kafka.
+Run >>  C:\Softwares\kafka>.\bin\windows\kafka-topics.sh --create --zookeeper localhost:2181 --partitions 1 --topic test
+
+
+
+3.Send Message:
+---------------------------
+Goto path of kafka.
+Run >>  C:\Softwares\kafka>.\bin\windows\kafka-console-producer.sh  localhost:9092 --topic test
+-This is a message
+-This is another message
+
+3.Receive Message:
+---------------------------
+Goto path of kafka.
+Run >>  C:\Softwares\kafka>.\bin\windows\kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning
+This is a message
+This is another message
+ 
+
+
+
+
+
